@@ -1,0 +1,266 @@
+/* 全局样式 */
+.App {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 编辑器样式 */
+/* 编辑器样式 */
+.editor-container {
+  width: 100%;
+  max-width: none; /* 移除最大宽度限制，让它完全占满父容器 */
+  margin: 0;
+  padding: 16px;
+  height: 100%; /* 改为 100% 以适应父容器 */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box; /* 确保 padding 不会增加总宽度 */
+}
+
+.editor-toolbar {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px;
+  margin-bottom: 20px;
+  z-index: 100;
+  border-radius: 4px 4px 0 0;
+  flex-shrink: 0; /* 防止工具栏被压缩 */
+}
+
+.editor-content {
+  width: 100%;
+  flex: 1; /* 让编辑区域占满剩余空间 */
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 0 0 4px 4px;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.6;
+  resize: none;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.editor-content pre {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.editor-content code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* 评论高亮 */
+.comment-highlight {
+  background-color: #fff3cd;
+  border-bottom: 2px solid #ffc107;
+  cursor: pointer;
+}
+
+/* 协作者光标 */
+.collaborator-cursor {
+  width: 2px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.collaborator-name {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 12px;
+  color: #fff;
+  background: inherit;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* 侧边栏样式 */
+.sidebar-logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* 文档列表样式 */
+.document-list-item {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.document-list-item:hover {
+  background-color: #f5f5f5;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .editor-container {
+    padding: 10px;
+    margin: 0 10px;
+  }
+  
+  .editor-content {
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .editor-container {
+    max-width: 1400px;
+  }
+}
+
+/* Quill编辑器样式 */
+.quill-editor-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.ql-editor {
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 400px;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.ql-container {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  flex: 1;
+}
+
+/* 自定义工具栏样式 */
+.ql-snow .ql-tooltip {
+  z-index: 1000;
+}
+
+.ql-snow .ql-picker {
+  color: #444;
+}
+
+/* 协同编辑器样式 */
+.collaborative-editor-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafafa;
+}
+
+.collaborators-list {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.connected {
+  background-color: #52c41a;
+}
+
+.status-dot.disconnected {
+  background-color: #ff4d4f;
+}
+
+.collaborator-count {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Yjs 光标样式 */
+.ql-cursor {
+  position: absolute;
+  border-left: 2px solid;
+  border-color: inherit;
+  height: 1em;
+  pointer-events: none;
+}
+
+.ql-cursor-name {
+  position: absolute;
+  top: -20px;
+  left: -2px;
+  font-size: 12px;
+  color: white;
+  background: inherit;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.ql-cursor-selection {
+  background-color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+/* Quill 编辑器增强样式 */
+.ql-editor {
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 400px;
+}
+
+.ql-toolbar {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.ql-container {
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  flex: 1;
+}
